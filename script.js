@@ -200,27 +200,8 @@ document.addEventListener("DOMContentLoaded", function () {
         termsOfSaleAdded = true;
       }
 
-      // Insert COP/LOP Details heading after "Voice Announcer"
-      if (!copLopDetailsAdded && labelText.includes("Voice Announcer")) {
-        yPosition += 10;
-
-        // Check if space is enough for "COP/LOP Details" heading
-        if (yPosition > 230) {
-          addNewPage();
-          yPosition = 40; // Adjusted Y position below the logo
-        }
-
-        // Center COP/LOP Details heading
-        const copLopDetailsText = "COP/LOP Details";
-        doc.setFontSize(14);
-        doc.text(copLopDetailsText, pageWidth / 2, yPosition, { align: "center" });
-
-        yPosition += 10;
-        copLopDetailsAdded = true;
-      }
-
-      // Insert Payment Terms section immediately after "COP/LOP Details"
-      if (!paymentTermsAdded && copLopDetailsAdded) {
+      // Insert Payment Terms section immediately after "Terms of Sale"
+      if (!paymentTermsAdded && termsOfSaleAdded) {
         yPosition += 10;
 
         // Check if space is enough for "Payment Terms" heading
