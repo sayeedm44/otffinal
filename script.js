@@ -198,50 +198,50 @@ document.addEventListener("DOMContentLoaded", function () {
         yPosition += 10;
 
         termsOfSaleAdded = true;
-      }
 
-      // Insert Payment Terms section immediately after "Terms of Sale"
-      if (!paymentTermsAdded && termsOfSaleAdded) {
-        yPosition += 10;
+        // Insert Payment Terms section immediately after "Terms of Sale"
+        if (!paymentTermsAdded && termsOfSaleAdded) {
+          yPosition += 10;
 
-        // Check if space is enough for "Payment Terms" heading
-        if (yPosition > 230) {
-          addNewPage();
-          yPosition = 40;
-        }
-
-        // Center Payment Terms heading
-        addPaymentTermsHeader();
-        yPosition += 10;
-
-        // Add Payment Terms fields
-        const paymentTermsFields = [
-          "Basic Cost of the Lift",
-          "Structure Cost",
-          "Installation Charges",
-          "Transportation Charges",
-          "GST",
-          "Cash & Account Commitments",
-          "Advance Payment Collected",
-          "While Placing Order",
-          "After signing the drawings",
-          "Readiness Notification from Factory",
-          "Material Reaching Site",
-          "Comprehensive AMC Per Annum",
-          "Non Comprehensive AMC Per Annum"
-        ];
-
-        paymentTermsFields.forEach((fieldId) => {
-          const field = document.getElementById(fieldId.replace(/\s+/g, ''));
-          if (field) {
-            const fieldLabel = document.querySelector(`label[for="${field.id}"]`).innerText;
-            const fieldValue = field.value || "N/A";
-            doc.text(`${fieldLabel.replace(/:+$/, '')}: ${fieldValue}`, leftIndent, yPosition);
-            yPosition += 10;
+          // Check if space is enough for "Payment Terms" heading
+          if (yPosition > 230) {
+            addNewPage();
+            yPosition = 40;
           }
-        });
 
-        paymentTermsAdded = true;
+          // Center Payment Terms heading
+          addPaymentTermsHeader();
+          yPosition += 10;
+
+          // Add Payment Terms fields
+          const paymentTermsFields = [
+            "Basic Cost of the Lift",
+            "Structure Cost",
+            "Installation Charges",
+            "Transportation Charges",
+            "GST",
+            "Cash & Account Commitments",
+            "Advance Payment Collected",
+            "While Placing Order",
+            "After signing the drawings",
+            "Readiness Notification from Factory",
+            "Material Reaching Site",
+            "Comprehensive AMC Per Annum",
+            "Non Comprehensive AMC Per Annum"
+          ];
+
+          paymentTermsFields.forEach((fieldId) => {
+            const field = document.getElementById(fieldId.replace(/\s+/g, ''));
+            if (field) {
+              const fieldLabel = document.querySelector(`label[for="${field.id}"]`).innerText;
+              const fieldValue = field.value || "N/A";
+              doc.text(`${fieldLabel.replace(/:+$/, '')}: ${fieldValue}`, leftIndent, yPosition);
+              yPosition += 10;
+            }
+          });
+
+          paymentTermsAdded = true;
+        }
       }
 
       // Insert Cabin Details heading after "No of Floors" in Order Details
